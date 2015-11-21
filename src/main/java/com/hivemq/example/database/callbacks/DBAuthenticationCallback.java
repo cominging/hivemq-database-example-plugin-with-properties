@@ -21,7 +21,7 @@ public class DBAuthenticationCallback implements OnAuthenticationCallback {
 
     private static Logger log = LoggerFactory.getLogger(DBAuthenticationCallback.class);
 
-    private static final String SQLStatement = "SELECT password from `Users` where username = ?";
+    private static final String SQLStatement = "SELECT password from `users` where username = ?";
 
     private final Provider<Connection> connectionProvider;
 

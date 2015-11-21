@@ -25,7 +25,7 @@ public class PersistMessagesCallback implements OnPublishReceivedCallback {
     private final Provider<Connection> connectionProvider;
     private final PluginExecutorService pluginExecutorService;
 
-    private static final String SQLStatement = "INSERT INTO `Messages` (message,topic,qos,client) VALUES (?,?,?,?)";
+    private static final String SQLStatement = "INSERT INTO `messages` (client_id,topic,message,qos,receive_time) VALUES (?,?,?,?,NOW())";
 
 
     @Inject
@@ -44,10 +44,10 @@ public class PersistMessagesCallback implements OnPublishReceivedCallback {
             public void run() {
                 try {
                     final PreparedStatement preparedStatement = connection.prepareStatement(SQLStatement);
-                    preparedStatement.setBytes(1, publish.getPayload());
+                    preparedStatement.setString(1, clientData.getClientId());
                     preparedStatement.setString(2, publish.getTopic());
-                    preparedStatement.setInt(3, publish.getQoS().getQosNumber());
-                    preparedStatement.setString(4, clientData.getClientId());
+                    preparedStatement.setString(3, new String(publish.getPayload()));
+                    preparedStatement.setInt(4, publish.getQoS().getQosNumber());
 
                     preparedStatement.execute();
                     preparedStatement.close();

@@ -6,7 +6,7 @@
 
     <groupId>com.hivemq</groupId>
     <artifactId>hivemq-database-example-plugin</artifactId>
-    <version>3.0</version>
+    <version>3.0.1</version>
 
 
     <inceptionYear>2015</inceptionYear>
@@ -29,6 +29,13 @@
             <email>dominik.obermaier@dc-square.de</email>
             <organization>dc-square GmbH</organization>
             <organizationUrl>http://www.dc-square.de</organizationUrl>
+        </developer>
+        <developer>
+            <id>maofanhsu</id>
+            <name>Maofan Hsu</name>
+            <email>maofanhsu@gmail.com</email>
+            <organization>Weintek Labs., Inc.</organization>
+            <organizationUrl>http://www.weintek.com</organizationUrl>
         </developer>
     </developers>
 
